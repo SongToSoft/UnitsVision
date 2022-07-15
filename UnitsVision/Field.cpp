@@ -50,6 +50,10 @@ void Field::generateSmall() {
 	unit6->setPosition({ -4, -1 });
 	unit6->setDirection({ -1, -1 });
 
+	Unit* unit7 = new Unit();
+	unit7->setPosition({ -4, -1 });
+	unit7->setDirection({ -1, -1 });
+
 	units.push_back(unit0);
 	units.push_back(unit1);
 	units.push_back(unit2);
@@ -57,10 +61,11 @@ void Field::generateSmall() {
 	units.push_back(unit4);
 	units.push_back(unit5);
 	units.push_back(unit6);
+	units.push_back(unit7);
 }
 
 int Field::generateRandom() {
-	auto unitsCount = (MIN_UNITS + rand()) % MAX_UNITS;
+	auto unitsCount = MIN_UNITS + (rand() % MAX_UNITS);
 	sectorAngle = static_cast<float>(rand() % MAX_DISTANCE);
 	distance = static_cast<float>(rand() % unitsCount);
 
@@ -94,7 +99,7 @@ void Field::checkVision(bool isMultithread) {
 		}
 		auto threadWork = (units.size() / coresCount);
 		auto threadRemainder = units.size() - (threadWork * coresCount);
-		for (auto i = 0; i < coresCount; ++i) {
+		for (unsigned int i = 0; i < coresCount; ++i) {
 			size_t start = (size_t)(threadWork * i);
 			size_t end = (size_t)(threadWork * (i + 1));
 			if (i == (coresCount - 1)) {
@@ -103,10 +108,10 @@ void Field::checkVision(bool isMultithread) {
 			std::thread* thread = new std::thread(std::bind(&Field::checkUnitsVision, this, start, end));
 			threads.push_back(thread);
 		}
-		for (auto i = 0; i < coresCount; ++i) {
+		for (unsigned int i = 0; i < coresCount; ++i) {
 			threads[i]->join();
 		}
-		for (auto i = 0; i < coresCount; ++i) {
+		for (unsigned int i = 0; i < coresCount; ++i) {
 			delete threads[i];
 		}
 	}
@@ -129,20 +134,23 @@ void Field::checkUnitsVision(size_t start, size_t end) {
 					std::pair<float, float> unitDiffVec = { units[j]->getPosition().first - units[i]->getPosition().first,
 															units[j]->getPosition().second - units[i]->getPosition().second };
 					auto angle = getAngle(centerSectorVec, unitDiffVec);
-					if (debugEnabled) {
-						std::cout << "Angle between center sector " << "Unit[" << i << "] and Unit[" << j << "]: " << angle << std::endl;
-					}
-					if (inSector(angle)) {
-						++visibleCount;
+					if (!isnan(angle)) {
 						if (debugEnabled) {
-							std::cout << "Unit[" << i << "] see Unit[" << j << "]" << std::endl;
+							std::cout << "Angle between center sector " << "Unit[" << i << "] and Unit[" << j << "]: " << angle << std::endl;
+						}
+						if (inSector(angle)) {
+							++visibleCount;
+							if (debugEnabled) {
+								std::cout << "Unit[" << i << "] see Unit[" << j << "]" << std::endl;
+							}
 						}
 					}
 				}
 			}
 		}
 		if (debugEnabled) {
-			std::cout << "Unit[" << i << "] see: " << visibleCount << " in area" << std::endl;
+			std::cout << "Unit[" << i << "] see: " << visibleCount << " units in vision sector" << std::endl;
+			std::cout << std::endl;
 		}
 	}
 }

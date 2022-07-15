@@ -13,7 +13,8 @@
     Если данный угол меньше или равен половины угла сектора видимости, то позиция юнита2 попадает в этот сектор.
 Данные условия проверяется между всеми юнитами относительно друг-друга. Так и определяется сколько других юнитов видит каждый из них.
 
-Для примера определили шесть юнитов со своими позициями и направлениями. На рисунке представлено примерное расположене юнитов ввиде окружностей и секторами, в которые могут попадать другие юниты.
+Для примера определим несколько юнитов со своими позициями и направлениями. На рисунке представлено примерное расположене юнитов ввиде окружностей и секторов видимости, в которые могут попадать другие юниты.
+Вот что выведет программа для данных значений:
 
 ```
 View Distance: 2, View Sector Angle: 135.5
@@ -24,35 +25,48 @@ Unit[3] Position: [1, -1], Direction: [-0.4, 0.5]
 Unit[4] Position: [0, 0], Direction: [0, 1]
 Unit[5] Position: [0, -5], Direction: [-1, 0]
 Unit[6] Position: [-4, -1], Direction: [-1, -1]
+Unit[7] Position: [-4, -1], Direction: [-1, -1]
 
 Angle between center sector Unit[0] and Unit[1]: 0
 Unit[0] see Unit[1]
 Angle between center sector Unit[0] and Unit[3]: 180
 Angle between center sector Unit[0] and Unit[4]: 135
-Unit[0] see: 1 in area
+Unit[0] see: 1 units in vision sector
+
 Angle between center sector Unit[1] and Unit[0]: 90
-Unit[1] see: 0 in area
+Unit[1] see: 0 units in vision sector
+
 Angle between center sector Unit[2] and Unit[6]: 45
 Unit[2] see Unit[6]
-Unit[2] see: 1 in area
+Angle between center sector Unit[2] and Unit[7]: 45
+Unit[2] see Unit[7]
+Unit[2] see: 2 units in vision sector
+
 Angle between center sector Unit[3] and Unit[0]: 38.6598
 Unit[3] see Unit[0]
 Angle between center sector Unit[3] and Unit[4]: 6.34021
 Unit[3] see Unit[4]
-Unit[3] see: 2 in area
+Unit[3] see: 2 units in vision sector
+
 Angle between center sector Unit[4] and Unit[0]: 45
 Unit[4] see Unit[0]
 Angle between center sector Unit[4] and Unit[3]: 135
-Unit[4] see: 1 in area
-Unit[5] see: 0 in area
+Unit[4] see: 1 units in vision sector
+
+Unit[5] see: 0 units in vision sector
+
 Angle between center sector Unit[6] and Unit[2]: 45
 Unit[6] see Unit[2]
-Unit[6] see: 1 in area
+Unit[6] see: 1 units in vision sector
+
+Angle between center sector Unit[7] and Unit[2]: 45
+Unit[7] see Unit[2]
+Unit[7] see: 1 units in vision sector
 ```
 ![screen](https://github.com/SongToSoft/UnitsVision/blob/main/Images/image.png)
 
 Так же в программе есть пример работы данной программы с многопоточностью через std::thread из стандартной библиотеки и сравнение на большом количестве юнитов того, как многопоточность ускоряет работу программы.
 ```
-Elapsed time with multi-thread: 4030 for 5041 units
-Elapsed time in one thread: 12304 for 5041 units
+Elapsed time with multi-thread: 4195 for 5041 units
+Elapsed time in one thread: 12238 for 5041 units
 ```

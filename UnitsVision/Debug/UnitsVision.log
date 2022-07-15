@@ -1,7 +1,4 @@
 ﻿  Field.cpp
-C:\Users\bogda\OneDrive\Документы\GitHub\UnitsVision\UnitsVision\Field.cpp(97,22): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\bogda\OneDrive\Документы\GitHub\UnitsVision\UnitsVision\Field.cpp(106,22): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\bogda\OneDrive\Документы\GitHub\UnitsVision\UnitsVision\Field.cpp(109,22): warning C4018: <: несоответствие типов со знаком и без знака
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\utility(193,16): warning C4244: инициализация: преобразование "_Ty" в "_Ty1", возможна потеря данных
           with
           [
