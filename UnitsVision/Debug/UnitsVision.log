@@ -1,0 +1,65 @@
+﻿  Field.cpp
+C:\Users\bogda\OneDrive\Документы\GitHub\UnitsVision\UnitsVision\Field.cpp(97,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\bogda\OneDrive\Документы\GitHub\UnitsVision\UnitsVision\Field.cpp(106,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\bogda\OneDrive\Документы\GitHub\UnitsVision\UnitsVision\Field.cpp(109,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\utility(193,16): warning C4244: инициализация: преобразование "_Ty" в "_Ty1", возможна потеря данных
+          with
+          [
+              _Ty=int
+          ]
+          and
+          [
+              _Ty1=float
+          ]
+C:\Users\bogda\OneDrive\Документы\GitHub\UnitsVision\UnitsVision\Field.cpp(26): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::pair<float,float>::pair<int,int,0>(_Other1 &&,_Other2 &&) noexcept"
+          with
+          [
+              _Other1=int,
+              _Other2=int
+          ]
+C:\Users\bogda\OneDrive\Документы\GitHub\UnitsVision\UnitsVision\Field.cpp(26): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::pair<float,float>::pair<int,int,0>(_Other1 &&,_Other2 &&) noexcept"
+          with
+          [
+              _Other1=int,
+              _Other2=int
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\utility(193,54): warning C4244: инициализация: преобразование "_Ty" в "_Ty2", возможна потеря данных
+          with
+          [
+              _Ty=int
+          ]
+          and
+          [
+              _Ty2=float
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\utility(193,16): warning C4244: инициализация: преобразование "_Ty" в "_Ty1", возможна потеря данных
+          with
+          [
+              _Ty=double
+          ]
+          and
+          [
+              _Ty1=float
+          ]
+C:\Users\bogda\OneDrive\Документы\GitHub\UnitsVision\UnitsVision\Field.cpp(35): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::pair<float,float>::pair<double,double,0>(_Other1 &&,_Other2 &&) noexcept"
+          with
+          [
+              _Other1=double,
+              _Other2=double
+          ]
+C:\Users\bogda\OneDrive\Документы\GitHub\UnitsVision\UnitsVision\Field.cpp(35): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::pair<float,float>::pair<double,double,0>(_Other1 &&,_Other2 &&) noexcept"
+          with
+          [
+              _Other1=double,
+              _Other2=double
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\utility(193,54): warning C4244: инициализация: преобразование "_Ty" в "_Ty2", возможна потеря данных
+          with
+          [
+              _Ty=double
+          ]
+          and
+          [
+              _Ty2=float
+          ]
+  UnitsVision.vcxproj -> C:\Users\bogda\OneDrive\Документы\GitHub\UnitsVision\UnitsVision\Debug\UnitsVision.exe
